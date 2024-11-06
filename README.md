@@ -20,7 +20,7 @@ NestGo is a powerful and flexible framework for building scalable server-side ap
 To get started with NestGo, install the framework using Go modules:
 
 ```bash
-go get github.com/yourusername/nest
+go get github.com/vanyastar/nest
 ```
 
 ---
