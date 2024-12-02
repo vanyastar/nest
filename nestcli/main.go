@@ -17,13 +17,12 @@ func main() {
 				err := m.Call(nil)
 				if !err[0].IsNil() {
 					e := err[0].Interface().(error)
-					log.Fatal(e.Error())
+					log.Fatal(e)
 					return
 				}
 				return
 			}
-			log.Fatal("- not enough parameters")
-			return
+			log.Println("- not enough parameters")
 		}
 	}
 	cmd["default"]["help"].Call(nil)

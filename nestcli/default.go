@@ -4,7 +4,7 @@ import "fmt"
 
 type Default struct{}
 
-func (c Default) Help(args []string) {
+func (c Default) Help() {
 	fmt.Println(`
 		Usage:
 
