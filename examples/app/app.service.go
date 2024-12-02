@@ -3,9 +3,9 @@ package app
 import (
 	"example/app/cats"
 	"example/app/dogs"
-	staticServer "example/app/static-server"
+	"example/app/static"
 
-	nest "github.com/vanyastar/nest"
+	"github.com/vanyastar/nest"
 )
 
 func App(c *nest.AppContext) {
@@ -17,5 +17,5 @@ func App(c *nest.AppContext) {
 	dogs.NewDogsController(c)
 
 	// Start static controller
-	staticServer.NewStaticController(c)
+	static.NewStaticController(c)
 }

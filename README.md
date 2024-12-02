@@ -31,17 +31,17 @@ A typical `NestGo` project is structured as follows:
 
 ```
 my-nestgo-app/
-├── main.service..go               # Main entry point for the application
+├── main.service.go           # Main entry point for the application
 ├── hello/
-│   ├── hello.controller.go # Controller with route handlers
-│   ├── hello.service.go  # Service containing business logic
-│   ├── dto/              # Data Transfer Objects (DTOs) for request validation
-│   ├── validators/       # Validators
-│   └── guards/           # Guards for route protection
+│   ├── hello.controller.go   # Controller with route handlers
+│   ├── hello.service.go      # Service containing business logic
+│   ├── dto/                  # Data Transfer Objects (DTOs) for request validation
+│   ├── validators/           # Validators
+│   └── guards/               # Guards for route protection
 ├── common/
-│   └── middlewares.go    # Example custom middleware
+│   └── middlewares.go        # Example custom middleware
 └── config/
-    └── config.go         # Configuration settings
+    └── config.go             # Configuration settings
 ```
 
 ## Core Concepts

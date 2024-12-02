@@ -1,8 +1,6 @@
 package nest
 
-import (
-	logService "github.com/vanyastar/nest/log-service"
-)
+import "github.com/vanyastar/nest/nestlog"
 
 type AppContextFunc func(c *AppContext)
 
@@ -21,7 +19,7 @@ func (c *AppContext) UseGlobal(fn ...MidWare) {
 
 // Static Server Controller
 func (c *AppContext) Static(path string, dir string, fn DefaultControllerFunc) {
-	logService.Log("StaticController", "Mapped "+path)
+	nestlog.Log("StaticController", "Mapped "+path)
 	c.Controller(path, fn, staticMidware(dir))
 }
 
@@ -30,7 +28,7 @@ func (c *AppContext) Controller(path string, fn DefaultControllerFunc, midWares 
 	if len(midWares) > 0 {
 		c.Use(midWares...)
 	} else {
-		logService.Log("DefaultController", "Mapped "+path)
+		nestlog.Log("DefaultController", "Mapped "+path)
 	}
 	c.lockControllerMidwares()
 	fn(newDefaultController(path, c.handlerManager))

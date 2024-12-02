@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	logService "github.com/vanyastar/nest/log-service"
+	"github.com/vanyastar/nest/nestlog"
 )
 
 type httpServers struct {
@@ -20,10 +20,10 @@ func (s *httpServers) ListenAndServe() {
 		server.Handler = s.mux
 		go func() {
 			if server.TLSConfig != nil && len(server.TLSConfig.Certificates) > 0 {
-				logService.Log("HTTP/2 Server", "This application is running on: "+server.Addr)
+				nestlog.Log("HTTP/2 Server", "This application is running on: "+server.Addr)
 				server.ListenAndServeTLS("", "")
 			} else {
-				logService.Log("HTTP/1 Server", "This application is running on: "+server.Addr)
+				nestlog.Log("HTTP/1 Server", "This application is running on: "+server.Addr)
 				server.ListenAndServe()
 			}
 		}()
@@ -40,7 +40,7 @@ func (s *httpServers) Shutdown() {
 				log.Fatal(err)
 				return
 			}
-			logService.Log("HTTP Server", "Shutdown gracefuly: "+server.Addr)
+			nestlog.Log("HTTP Server", "Shutdown gracefuly: "+server.Addr)
 		}()
 	}
 }

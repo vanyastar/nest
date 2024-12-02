@@ -1,9 +1,9 @@
-package staticServer
+package static
 
 import (
 	"net/http"
 
-	nest "github.com/vanyastar/nest"
+	"github.com/vanyastar/nest"
 )
 
 type staticController struct {
@@ -11,7 +11,7 @@ type staticController struct {
 }
 
 func NewStaticController(c *nest.AppContext) {
-	var this = &staticController{}
+	this := &staticController{}
 
 	c.Static("/", "./public", func(c *nest.DefaultController) {
 

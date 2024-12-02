@@ -4,7 +4,7 @@ import (
 	catsDtos "example/app/cats/dtos"
 	"net/http"
 
-	nest "github.com/vanyastar/nest"
+	"github.com/vanyastar/nest"
 )
 
 type catsController struct {
@@ -22,7 +22,7 @@ type catsController struct {
 
 // Here is your logic for that controller
 func NewCatsController(c *nest.AppContext) {
-	var this = &catsController{
+	this := &catsController{
 		catsService: GetCatsService,
 	}
 
@@ -48,7 +48,7 @@ func NewCatsController(c *nest.AppContext) {
 		// Post request with fully automated DTO struct
 		c.Post("/name-struct", &this.setNameStruct)
 		this.setNameStruct = func(c *nest.Ctx) error {
-			dto := &catsDtos.SetCatName{}
+			dto := new(catsDtos.SetCatName)
 			if err := c.DtoParser(dto); err != nil {
 				return c.Error(http.StatusBadRequest, err.Error())
 			}
@@ -62,7 +62,7 @@ func NewCatsController(c *nest.AppContext) {
 
 		c.Post("/name-struct-no-validation", &this.setNameStructNoValidation)
 		this.setNameStructNoValidation = func(c *nest.Ctx) error {
-			dto := &catsDtos.SetCatNameNoValidation{}
+			dto := new(catsDtos.SetCatNameNoValidation)
 			if err := c.BodyParser(dto); err != nil {
 				return c.Error(http.StatusBadRequest, err.Error())
 			}

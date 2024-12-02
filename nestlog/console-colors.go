@@ -1,4 +1,4 @@
-package logService
+package nestlog
 
 // Define a custom type for colors
 type color int

@@ -3,7 +3,7 @@ package nest
 import (
 	"strings"
 
-	logService "github.com/vanyastar/nest/log-service"
+	"github.com/vanyastar/nest/nestlog"
 )
 
 type DefaultControllerFunc func(c *DefaultController)
@@ -60,7 +60,7 @@ func (c *DefaultController) Trace(path string, ef *EndFunc) {
 func (c *DefaultController) apply(method, path string, ef *EndFunc) {
 	c.setPath(strings.TrimSpace(method + " " + c.appContextPath + path))
 	c.setEndpoint(ef)
-	logService.Log("Router", "Mapped "+method+": "+c.appContextPath+path)
+	nestlog.Log("Router", "Mapped "+method+": "+c.appContextPath+path)
 }
 
 func newDefaultController(appContextPath string, handlerManager *handlerManager) *DefaultController {

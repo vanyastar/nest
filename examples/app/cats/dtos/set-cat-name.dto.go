@@ -6,6 +6,8 @@ type SetCatNameNoValidation struct {
 	Name string `json:"name" validate:"required"`
 }
 
+// SetCatNameNoValidation doesn't have a validation method.
+
 type SetCatName struct {
 	Name string `json:"name" validate:"required"`
 }

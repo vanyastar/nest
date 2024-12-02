@@ -3,7 +3,7 @@ package dogs
 import (
 	"example/app/cats"
 
-	nest "github.com/vanyastar/nest"
+	"github.com/vanyastar/nest"
 )
 
 type dogsController struct {
@@ -15,7 +15,7 @@ type dogsController struct {
 }
 
 func NewDogsController(c *nest.AppContext) {
-	var this = &dogsController{
+	this := &dogsController{
 		dogsService: GetDogsService,
 		catsService: cats.GetCatsService,
 	}

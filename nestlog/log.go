@@ -1,4 +1,4 @@
-package logService
+package nestlog
 
 import (
 	"strconv"
@@ -21,4 +21,10 @@ func Log(service, text string) {
 	mu.Lock()
 	duration = time.Now()
 	mu.Unlock()
+}
+
+func Error(service, text string) {
+	print(colorCodes[red] + "!!! ")
+	Log(service, text)
+
 }
