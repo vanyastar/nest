@@ -1,15 +1,14 @@
 package tpl
 
 import (
+	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
-
-	"github.com/vanyastar/nest/nestlog"
 )
 
 func RunDependencies(dir string) error {
-	nestlog.Log("CMD", "Installing dependencies")
+	log.Println("- installing dependencies...")
 	cDir, err := os.Getwd()
 	if err != nil {
 		return err
@@ -28,6 +27,6 @@ func RunDependencies(dir string) error {
 	if err != nil {
 		return err
 	}
-	nestlog.Log("CMD", "Dependencies installed")
+	log.Println("- dependencies installed")
 	return nil
 }

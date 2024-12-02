@@ -1,8 +1,9 @@
 package main
 
 import (
+	"log"
+
 	"github.com/vanyastar/nest/nestcli/tpl"
-	"github.com/vanyastar/nest/nestlog"
 )
 
 type Generate struct{}
@@ -30,7 +31,7 @@ func (c Generate) Project() error {
 		return err
 	}
 
-	nestlog.Log("Project Generator", "Project created")
+	log.Print("- project created")
 	return nil
 }
 
@@ -49,7 +50,7 @@ func (c Generate) Module() error {
 		return err
 	}
 
-	nestlog.Log("Module Generator", "Module `"+name+"` created")
+	log.Println("- module `" + name + "` created")
 	return nil
 }
 
@@ -60,7 +61,7 @@ func (c Generate) Controller() error {
 		return err
 	}
 
-	nestlog.Log("Controller Generator", "Controller `"+name+"` created")
+	log.Println("- controller `" + name + "` created")
 	return nil
 }
 
@@ -71,6 +72,6 @@ func (c Generate) Service() error {
 		return err
 	}
 
-	nestlog.Log("Service Generator", "Service `"+name+"` created")
+	log.Println("- service `" + name + "` created")
 	return nil
 }

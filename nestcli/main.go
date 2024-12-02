@@ -1,9 +1,8 @@
 package main
 
 import (
+	"log"
 	"os"
-
-	"github.com/vanyastar/nest/nestlog"
 )
 
 func main() {
@@ -18,12 +17,12 @@ func main() {
 				err := m.Call(nil)
 				if !err[0].IsNil() {
 					e := err[0].Interface().(error)
-					nestlog.Error("CLI", e.Error())
+					log.Fatal(e.Error())
 					return
 				}
 				return
 			}
-			nestlog.Error("CLI", "Not enough parameters")
+			log.Fatal("- not enough parameters")
 			return
 		}
 	}
